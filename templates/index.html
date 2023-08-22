@@ -1,0 +1,498 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- call fontAwsome -->
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.0-dist/css/all.min.css'%}">
+    <!-- call bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.0-dist/css/bootstrap.min.css'%}">
+   
+
+    <style>
+        .icons > div{
+            width: 20%;
+         
+           
+         
+
+        }
+        body{
+            overflow-x: hidden;
+        }
+      nav li a{
+        color: white !important;
+        
+      }
+      nav a{
+        color: white !important;
+      }
+      @media (max-width:768px){
+    .f_img{
+        width: 300px;
+        height: 300px;
+    }
+    .cir{
+        display: none;
+    }
+    .circle_1{
+        display: none;
+    }
+    .txt{
+        text-align: left;
+    }
+      }
+      @media (max-width:1280px) {
+        .pa{
+            max-width: 400px !important;
+        }
+      }
+
+      @media (max-width:1024px) {
+        .pa{
+            max-width: 280px !important;
+            min-width: 240px !important;
+        }
+        .circle_1{
+            left: -100px !important;
+            bottom: -30px !important;
+        }
+      }
+
+     ::placeholder{
+        color: #FBFFFF;
+     }
+body{
+    background-color: #0C3C4A;
+}
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container-fluid " style="background-color: #0C3C4A; " >
+            <div class="row" style=" width: 100vw">
+                <nav class="navbar navbar-expand-lg " style="background-color: #0C3C4A; color: #FBFFFF; border-bottom: 1px solid white;" >
+                    <div class="container-fluid" style="background-color: #0C3C4A;" >
+                      <a class="navbar-brand" href="#">Navbar</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="background-color: white; color: white ;border:none;"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                          </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-white" style="color: #FBFFFF;   pointer-events: none;" type="submit">Search</button>
+                        </form>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-6" style=" background-color: #0C3C4A; min-height:40vh;max-height: fit-content ; padding-left:10px;">
+               {% for FirstSection in FirstSection %}
+                    {% if FirstSection.one %}
+                    <h1 style="text-transform: uppercase; color: #FBFFFF; margin-top: 20px; font-size: 70px;">{{FirstSection.one}}</h1>
+                    {% else %}
+                    <h1 style="text-transform: uppercase; color: #FBFFFF; margin-top: 20px; font-size: 70px;">blue hill</h1>
+                    {% endif %}
+       
+                    {% if FirstSection.two %}
+                    <h3 style="color: #FBFFFF; text-transform: uppercase; font-size: 45px;">{{FirstSection.two}}</h3>
+                    {% else %}
+                    <h3 style="color: #FBFFFF; text-transform: uppercase; font-size: 45px;">tennis club</h3>
+                    {% endif %}
+                  
+                    {% if FirstSection.three %}
+                    <p style="color:#FBFFFF;">{{FirstSection.three}}</p>
+                    {% else %}
+                    <p style="color:#FBFFFF;">Lorem ipsum, dolor sit amet consectetur <br>  adipisicing elit. Non a consequuntur sit, pariatur <br>nobis vitae magnam molestias suscipit sed </p>
+                    {% endif %}
+                    <button style="width: 220px; color: #0C3C4A; background-color: yellowgreen; border-radius: 20px; margin-bottom: 60px;">Iscriviti al Club</button>
+                    <div style="margin-bottom: 40px; display: flex;">
+                        {% if FirstSection.f_img %}
+                     <img src="{{FirstSection.f_img.url}}" style = "width:70px; height:70px"style = "border-radius:50%"  class="facebook" alt="">
+                     {% else %}
+                     <img src="{% static 'icons8-facebook (2).svg'%}" style = "border-radius:50%" class="facebook" alt="">
+                     {% endif %}
+                     {% if FirstSection.s_img %}
+                     <img src="{{FirstSection.s_img.url}}" width="70" height="70" style = "border-radius:50%" class="insta" alt="">
+                     {% else %}
+                     <img src="{% static 'instagram-new-logo-removebg-preview.png'%}" width="70" height="70" style = "border-radius:50%"  class="insta" alt="">
+                     {% endif %}
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6"  style="background-color: #0C3C4A;min-height:40vh; max-height:fit-content">
+                    <center>
+                    <div style="display: inline-block;  width: fit-content; margin-top: 40px; margin-bottom: 40px;">
+                    <div  style="display: inline-block; margin:0 auto; height: 300px ;width:300px; border-radius: 50%; background-color: #FBFFFF;">
+                    <div style="position: relative;">
+                        {% if FirstSection.fo_img %}
+                        <img src="{{FirstSection.fo_img.url}}" width="300px" height="300px" style="border-radius: 50%;" alt="">
+                        {% else %}
+                        <img src="{% static 'berdych_2332789b.jpg'%}" width="300px" height="300px" style="border-radius: 50%;" alt="">
+                        {% endif %}
+                     <div style="display: flex; justify-content: space-between;">
+
+                     <div style="width: 120px; height: 120px; border-radius: 50%; background-color: #FBFFFF; position: absolute;
+                     top: 0; right: -25px;">
+                     {% if FirstSection.fi_img%}
+                        <img src="{{FirstSection.fi_img.url}}" width="120px" height="120px" style="border-radius: 50%;" alt="">
+                        {% else %}
+                        <img src="{% static 'dominika-cibulkova-2015-us-open-in-new-york-city-day-6_11.jpg'%}" width="120px" height="120px" style="border-radius: 50%;" alt="">
+                    {% endif %}
+                    </div>
+
+                     <div style="width: 120px; height: 120px; border-radius: 50%; background-color: #FBFFFF; position: absolute; left:0; bottom: -30px;">
+                        {% if FirstSection.si_img%}
+                       <img src="{{FirstSection.si_img.url}}" width="120px" height="120px" style="border-radius: 50%;" alt="">
+                       {% else %}
+                       <img src="{%static 'berdych_2332789b.jpg'%}" width="120px" height="120px" style="border-radius: 50%;" alt="">
+                       {% endif %}
+                       {% endfor %}
+                    </div>
+                 
+                    </div>
+                </div>
+                </div>
+                </div>
+            </center>
+                </div>
+            </div>
+        </div>
+
+        <!-- second section and container -->
+        <div class="container-fluid" style="background-color: #0C3C4A;">
+            <div class="row" style="width: 100vw; background-color: #0C3C4A;">
+                <!-- first layout -->
+             <div class="col-12 col-md-12 col-lg-6" style="background-color: #0C3C4A; ">
+              {% for s in SecondSection %}
+              {% if s.one %}
+               <h4 style="color: #FBFFFF; margin-top: 30px;">{{s.one}}</h4>
+               {% else %}
+               <h4 style="color: #FBFFFF; margin-top: 30px;">IL CLUB</h4>
+               {% endif  %}
+
+               {% if s.two %}
+               <p style="color: #FBFFFF; min-width:300px; max-width:fit-content">
+                {{s.two}}
+               </p>
+               {% else %}
+               <p style="color: #FBFFFF; min-width:300px; max-width:fit-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit exercitationem aliquid, 
+                pariatur dolores dignissimos ipsa ratione alias quia! Enim at corruptibr 
+                 eaque beatae doloremque eius exercitationem laudantium dicta fugiat.
+               </p>
+               {% endif %}
+               {% if s.three %}
+               <p style="color: #FBFFFF; min-width:300px; max-width:fit-content">
+               {{s.three}}
+               </p>
+               {% else %}
+               <p style="color: #FBFFFF; min-width:300px; max-width:fit-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit exercitationem aliquid,
+                pariatur dolores dignissimos ipsa ratione alias quia! Enim at corruptibr 
+                 eaque beatae doloremque eius exercitationem laudantium dicta fugiat.
+               </p>
+               {% endif %}
+               {% if s.four %}
+               <h1 style="color: rgb(81,161,108)">
+                {{s.four}}
+               </h1>
+               {% else %}
+               <h1 style="color: rgb(81,161,108)">
+                continue alegree...
+               </h1>
+               {% endif %}
+             </div>
+             <!-- second  layout -->
+             <div class="col-12 col-md-12 col-lg-6" style="background-color: #0C3C4A; ">
+                <center>
+                  {% if s.f_img %}
+               <img src="{{s.f_img.url}}" class="f_img" style="width: 90%; margin-top: 30px;" height="280" alt="">
+               {% else %}
+               <img src="{% static 'maxresdefault.jpg'%}" class="f_img" style="width: 90%; margin-top: 30px;" height="280" alt="">
+               {% endif %}
+               {% endfor %}
+              </center>
+             </div>
+           
+            </div>
+
+            <div class="row" style="width: 100vw; ">
+              <div class="col-12" style="background-color: #0C3C4A;">
+                {% for t in ThirdSection %}
+                {% if t.one %}
+                <h2  style=" text-align: center;color: #FBFFFF; text-transform: uppercase; margin-top: 90px; margin-bottom: 80px; ">{{t.one}}</h2>
+                {% else %}
+                <h2  style=" text-align: center;color: #FBFFFF; text-transform: uppercase; margin-top: 90px; margin-bottom: 80px; ">perche scegliere il blue hill tennis club</h2>
+                {% endif %}
+                <div class="icons" style="display: flex; flex-wrap: wrap; justify-content: space-evenly; margin-bottom: 50px;">
+                    <div>
+                    <div style="background-color:rgb(81,161,108); height: 48px; width:48px; border-radius: 50%; ">
+                     {% if t.f_img %}
+                        <img src=" {{t.f_img.url}}" alt="">
+                        {% else %}
+                        <img src=" {% static 'icons82-tennis-48.png'%}" alt="">
+                        {% endif %}
+                    </div>
+                </div>
+                <div>
+                    <div style="background-color:rgb(81,161,108); height: 48px; width:48px; border-radius: 50%; ">
+                      {% if t.s_img %}
+                        <img src="{{t.s_img.url}}" width="45" height="40" alt="">
+                        {% else %}
+                        <img src="{% static 'icons8-tennis-40.png'%}" width="45" height="40" alt="">
+                        {% endif %}
+                    </div>
+                    </div>
+                    <div>
+                    <div style="background-color:rgb(81,161,108); height: 48px; width:48px; border-radius: 50%;">
+                      {% if t.t_img %}
+                      <img src="{{t.t_img.url}}" width="48" style="border-radius: 50%;" height="48" alt="">
+                      {% else %}
+                      <img src="{% static 'icons8-tennis-64.png'%}" width="48" style="border-radius: 50%;" height="48" alt="">
+                      {% endif %}
+                    </div>
+                </div>
+                    <div>
+                    <div style="background-color:rgb(81,161,108); height: 48px; width:48px; border-radius: 50%; ">
+                      {% if t.fo_img %}
+                        <img src="{t.fo_img.url}" width="45" height="40" alt="">
+                        {% else %}
+                        <img src="{% static 'icons8-tennis-48.png'%}" width="45" height="40" alt="">
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row" style="width: 100vw;  background-color: #0C3C4A; ">
+                <div class="col-12 col-md-12 col-lg-6" style="color: #e0ecec; text-align: center; position: relative; overflow: hidden;">
+                  {% for f in FourthSection %}
+                  {% if f.one %}
+                  <h1 class="txt" style="margin-top: 10px;">{{f.one}}</h1>
+                  {% else %}
+                  <h1 class="txt" style="margin-top: 10px;">Sei pronto</h1>
+                  {% endif %}
+                  {% if f.two %}
+                    <h1 class="txt" style="margin-bottom: 10px;">{{f.two}}</h1>
+                    {% else %}
+                    <h1 class="txt" style="margin-bottom: 10px;">a giocare?</h1>
+                    {% endif %}
+                    <div class="circle_1"  style="height: 200px; width: 200px; border-radius: 50%; border: 2px solid yellow; position: absolute; left: -50px; top: 40px;"></div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6" style="position: relative; overflow: hidden;" >
+                  {% if f.three %}
+                 <p style="color:white ; margin-top: 15px; margin-bottom: 15px; min-width: 340px; max-width:fit-content" class="pa">
+                 {{f.three}}
+                </p>
+                {% else %}
+                <p style="color:white ; margin-top: 15px; margin-bottom: 15px; min-width: 340px; max-width:fit-content" class="pa">
+                  Lorem ipsum dolor sit amet  consectetur,
+                   adipisicing elit.   Maxime sit corporis amet fugit 
+                 cumque molestias rerum possimus. delectus reprehenderit!
+                    Velit  numquam, repellat non deserunt 
+                     culpa illo placeat fugiat. Eveniet, dignissimos?
+               </p>
+               {% endif %}
+                <button  style="margin-bottom: 30px;width: 300px; background-color: yellow; color: #0C3C4A; border-radius: 20px; border: none;">Scari i app del club</button>
+                  <div class="cir"  style="height: 200px; width: 200px; border-radius: 50%; border: 2px solid yellow; position: absolute; top:-100px; right: 0;"></div>
+            </div>
+
+            </div>
+        </div>
+
+        <!-- third section -->
+
+        <div class="container-fluid" style="background-color: #0C3C4A;">
+            <div class="row"  style="width: 100vw; background-color: #0C3C4A;">
+               <div class="col-12" style="background-color: #0C3C4A; color:#FBFFFF;">
+                {% if f.four %}
+                <h1 style="margin-top: 30px; margin-bottom: 30px; text-transform: uppercase; text-align: center;">{{f.four}}</h1>
+                {% else %}
+                <h1 style="margin-top: 30px; margin-bottom: 30px; text-transform: uppercase; text-align: center;">scopri i nostri crosi</h1>
+                {% endif %}
+              </div>
+            </div>
+            <div class="row" style="width: 100vw; justify-content: center; background-color: #0C3C4A;">
+                <div class="col-10 col-md-10 col-10" >
+                    <div id="carouselExampleIndicators" class="carousel w-75 h-40 slide" style="margin: 40px auto ;">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            {% if f.f_img %}
+                            <img src="{{f.f_img.url}}" class="d-block w-100 " style="height: 40%;" alt="...">
+                            {% else %}
+                            <img src="https://th.bing.com/th/id/R.c89606c02382339f33eaa730d6ea2e21?rik=m2uPf9zaUoc1Bg&riu=http%3a%2f%2fwww.asbclassic.co.nz%2fassets%2fUploads%2fGettyImages-1009754400.jpg&ehk=oQjRpp%2fhjVGE9imYZG9G%2f0G5MRlBjn7O%2bW9sSxgzWzk%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100 " style="height: 40%;" alt="...">
+                            {% endif %}
+                          </div>
+                          <div class="carousel-item">
+                            {% if f.s_img %}
+                            <img src="{{f.s_img.url}}" class="d-block w-100 h-40" alt="...">
+                            {% else %}
+                            <img src="{% static 'berdych_2332789b.jpg'%}" style = "width:100%; height:40%" class="d-block w-100 h-40" alt="...">
+                            {% endif %}
+                          </div>
+                          <div class="carousel-item">
+                            {% if f.t_img %}
+                            <img src="{{f.t_img.url}}" class="h-40 d-block w-100" alt="...">
+                            {% else %}
+                            <img src="https://th.bing.com/th/id/R.7af3624b9a24e916337e24c814723a81?rik=EcMqTBC%2bEmduMQ&riu=http%3a%2f%2fhookedoneverything.com%2fwp-content%2fuploads%2f2016%2f01%2fNovak-Djokovic1.jpg&ehk=0f4VstXHY3SLo6nvJHL0J86fpmiOKzCDylrFyquYBX8%3d&risl=&pid=ImgRaw&r=0" class="h-40 d-block w-100" alt="...">
+                            {% endif %}
+                            {% endfor %}
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+            </div>
+            <div class="row" style="width:100vw ; background-color: #0C3C4A;" >
+                    {% for fi in FifthSection %}
+                    {% if fi.one  %}
+                    <h3 style="color: #FBFFFF;  text-align: center; text-transform: uppercase; margin-top: 20px; margin-bottom: 20px;">{{fi.one}}</h3>
+                    {% else %}
+                    <h3 style="color: #FBFFFF;  text-align: center; text-transform: uppercase; margin-top: 20px; margin-bottom: 20px;">i mastria</h3>
+                    {% endif %}
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
+                        <div style="width: 20vw; height: 20vw; border-radius: 50%; border:1px solid white">
+                          {% if fi.f_img  %}
+                            <img 
+                        src = "{{fi.f_img.url}}"
+                        style=" width: 20vw; height: 20vw; border-radius: 50%;" alt="">
+                        {% else %}
+                        <img 
+                        src="https://th.bing.com/th/id/R.7af3624b9a24e916337e24c814723a81?rik=EcMqTBC%2bEmduMQ&riu=http%3a%2f%2fhookedoneverything.com%2fwp-content%2fuploads%2f2016%2f01%2fNovak-Djokovic1.jpg&ehk=0f4VstXHY3SLo6nvJHL0J86fpmiOKzCDylrFyquYBX8%3d&risl=&pid=ImgRaw&r=0"
+                         style=" width: 20vw; height: 20vw; border-radius: 50%;" alt="">
+                         {% endif %}
+                        </div>
+               
+
+                        <div style="width: 40vw; height: 40vw; border-radius: 50%; border:1px solid white">
+                          {% if fi.s_img  %}
+                            <img 
+                            src="{{fi.s_img.url}}"
+                        style=" width: 40vw; height: 40vw; border-radius: 50%;" alt="">
+                        {% else %}
+                        <img 
+                        src="{% static 'berdych_2332789b.jpg' %}"
+                    style=" width: 40vw; height: 40vw; border-radius: 50%;" alt="">
+                    {% endif %}
+                        </div>
+               
+                        <div style="width: 20vw; height: 20vw; border-radius: 50%; border:1px solid white">
+                          {% if fi.t_img  %}
+                            <img 
+                          src = "{{fi.t_img.url}}"
+                        style=" width: 20vw; height: 20vw; border-radius: 50%;" alt="">
+                        </div>
+                        {% else %}
+                        <img 
+                        src="https://th.bing.com/th/id/R.c89606c02382339f33eaa730d6ea2e21?rik=m2uPf9zaUoc1Bg&riu=http%3a%2f%2fwww.asbclassic.co.nz%2fassets%2fUploads%2fGettyImages-1009754400.jpg&ehk=oQjRpp%2fhjVGE9imYZG9G%2f0G5MRlBjn7O%2bW9sSxgzWzk%3d&risl=&pid=ImgRaw&r=0"
+                    style=" width: 20vw; height: 20vw; border-radius: 50%;" alt="">
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                </div>
+              
+            </div>
+            <!-- five section -->
+            <div class="container-fluid" style="background-color: #0C3C4A;">
+                <div class="row" style="width: 100vw; background-color: #0C3C4A;">
+                  {% for si in SixSection %}
+                  {% if si.one %}
+                    <h1 style="color: #FBFFFF; text-align: center; text-transform: uppercase;">{{si.one}}</h1>
+                    {% else %}
+                    <h1 style="color: #FBFFFF; text-align: center; text-transform: uppercase;">blue hill tennis club</h1>
+                    {% endif %}
+                    <div style="margin-bottom: 40px; margin-top: 30px; display: flex;justify-content: center; ">
+                      {% if si.f_img %}
+                        <img src="{{ si.f_img.url }}" style ="width:100px; height:100px; border-radius:50%"  class="face" alt="">
+                        {% else %}
+                        <img src="{%static 'icons8-facebook (2).svg'%}"    class="face" alt="">
+                        {% endif %}
+                        {% if si.s_img %}
+                        <img src="{{si.s_img.url}}"  style="width:100px; height:100px; border-radius:50%"  class="inista" alt="">
+                        {% else %}
+                        <img src="{% static 'instagram-new-logo-removebg-preview.png'%}" width="70" height="70"    class="inista" alt="">
+                        {% endif %}
+                       </div>
+                    <div>
+                      {% if si.two %}
+                      <div style="text-align: center; color: #FBFFFF;margin-bottom: 30px;">{{si.two}}</div>
+                      {% else %}
+                      <div style="text-align: center; color: #FBFFFF;margin-bottom: 30px;">coach videos</div>
+                      {% endif %}
+                      {% endfor %}
+
+                      {% for x in Videos %}
+                  
+               <video type"video/mp4"  src="{{x.one.url}}" style="margin: 0 2%; width:45%; height: 500px;" controls autoplay muted loop></video>
+  
+               {% endfor %}
+                </div>
+
+            </div>
+          
+    </section>
+    <!-- call font awsome -->
+    <script src="{% static 'bootstrap-5.3.0-dist/js/all.js' %}"></script>
+    <!-- call bootstrsp -->
+    <script src="{% static 'bootstrap-5.3.0-dist/js/bootstrap.bundle.js' %}"></script>
+    <script>
+        document.querySelector(".facebook").onclick = function(){
+            window.open("https://www.facebook.com/profile.php?id=100028354686891&mibextid=ZbWKwL")
+        }
+
+        document.querySelector(".insta").onclick = function(){
+            window.open("https://instagram.com/mohamedashraf8061?igshid=MzRlODBiNWFlZA==")
+        }
+       
+
+        document.querySelector(".face").onclick = function(){
+          window.open("https://www.facebook.com/profile.php?id=100028354686891&mibextid=ZbWKwL")
+      }
+
+      document.querySelector(".inista").onclick = function(){
+          window.open("https://instagram.com/mohamedashraf8061?igshid=MzRlODBiNWFlZA==")
+      }
+ 
+    </script>
+</body>
+</html>
